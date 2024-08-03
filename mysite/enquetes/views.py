@@ -38,4 +38,4 @@ def votos(request,pergunta_id):
         escolha_selecionada.save()
 
 
-        return HttpResponseredirect(reverse("enquetes:resultados", args=(pergunta_id,)))
+        return HttpResponseRedirect(reverse("enquetes:resultados", args=(pergunta_id,)))
