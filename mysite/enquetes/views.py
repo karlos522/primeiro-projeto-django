@@ -34,7 +34,7 @@ def votos(request,pergunta_id):
             }
         )
     else:
-        escolha_selecionada.votos = f("votos") + 1
+        escolha_selecionada.votos = F("votos") + 1
         escolha_selecionada.save()
 
 
