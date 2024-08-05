@@ -1,6 +1,6 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from .models import Pergunta, escolha
+from .models import Pergunta, Escolha
 from django.urls import reverse
 from django.db.models import F
 
@@ -24,7 +24,7 @@ def votos(request,pergunta_id):
     Pergunta = get_object_or_404(Pergunta, pk=pergunta_id)
     try:
         escolha_selecionada = Pergunta.escolha_set.get(pk=request.POST["escolha"])
-    except (KeyError, escolha.DoesNotExist):
+    except (KeyError, Escolha.DoesNotExist):
         return render(
             request,
             "enquetes/detalhes.html",
